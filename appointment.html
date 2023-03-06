@@ -1,0 +1,14 @@
+<!--This module prevents website from doing anything before make an appointment on Google calendar in a pop up window-->
+<script>
+jQuery(document).ready(function($) {
+  $('#tribe-tickets__tickets-submit').click(function(event) {
+    event.preventDefault();
+    <!--insert Google calendar event embeded iframe below-->
+    var popupHtml = '<!-- Google Calendar Appointment Scheduling begin -->' +
+                    '<iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2xl2UUimR2mI00nSo5FigiT45E73gjPwqK6eoiMBOGw9ZKQ7hfCzeHwhjqMzSnICo_XHIJwzEG?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>' +
+                    '<!-- end Google Calendar Appointment Scheduling -->';
+    var popupWindow = window.open('', 'popupWindow', 'width=800,height=600');
+    popupWindow.document.write(popupHtml);
+  });
+});
+</script>
