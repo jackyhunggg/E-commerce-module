@@ -1,0 +1,49 @@
+<style>
+
+    //Disable get ticket div
+    div.tribe-common.event-tickets.tribe-tickets__tickets-wrapper {
+      display: none;
+    }
+    
+    </style>
+    
+    <!-- Google Calendar Appointment Scheduling begin -->
+    <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2xl2UUimR2mI00nSo5FigiT45E73gjPwqK6eoiMBOGw9ZKQ7hfCzeHwhjqMzSnICo_XHIJwzEG?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+    <!-- end Google Calendar Appointment Scheduling -->
+    
+    <button id="appointment-confirmation-btn">已確定完成預約</button>
+    
+    <script>
+    
+    // Wait for the DOM to load
+    document.addEventListener("DOMContentLoaded", function () {
+    
+      // Get the appointment scheduling iframe
+      var appointmentSchedulingIframe = document.querySelector("iframe[src='https://calendar.google.com/calendar/appointments/schedules/AcZssZ2xl2UUimR2mI00nSo5FigiT45E73gjPwqK6eoiMBOGw9ZKQ7hfCzeHwhjqMzSnICo_XHIJwzEG?gv=true']");
+    
+      // Get the confirmation button
+      var appointmentConfirmationButton = document.querySelector("#appointment-confirmation-btn");
+    
+      // Hide the appointment scheduling iframe
+      appointmentSchedulingIframe.style.display = "none";
+    
+      // Show the confirmation button
+      appointmentConfirmationButton.style.display = "block";
+    
+      // Add an event listener to the confirmation button
+      appointmentConfirmationButton.addEventListener("click", function () {
+    
+        // Check if the appointment scheduling iframe has been completed
+        var appointmentCompleted = appointmentSchedulingIframe.contentDocument.body.innerHTML.includes("Your appointment has been confirmed");
+    
+        // If the appointment has been completed, show the ticket wrapper
+        if (appointmentCompleted) {
+          var ticketWrapper = document.querySelector("div.tribe-common.event-tickets.tribe-tickets__tickets-wrapper");
+          ticketWrapper.style.display = "block";
+        }
+    
+      });
+    
+    });
+    
+    </script>
