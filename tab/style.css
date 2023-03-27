@@ -7,7 +7,7 @@
   
   /* Style for each tab */
   .tab {
-    display: inline-block;
+    display: none;
     margin-right: 10px;
     position: relative;
     background-color: #fff;
@@ -22,6 +22,7 @@
   
   /* Style for the active tab */
   .tab.active {
+    display: flex;
     background-color: #f1f1f1;
     border-color: #ccc;
     border-bottom-color: transparent;
@@ -54,6 +55,7 @@
   /* Style for the tab */
   li {
     display: inline-block;
+    flex-direction: column;;
     margin-right: 10px;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
